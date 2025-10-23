@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form th:action="@{/filtrar}" method="post">
+        <input name="nombre" type="text" placeholder="Nombre del mueble">
+        <button>Buscar</button>
+        <input name="precio" type="number" step="0.01" placeholder="Precio del mueble"> <!-- step es para poner decimales debido a algunos navegadores, con esto, te aseguras que el usuario pueda poner, 3, 2.5, 1.99-->
+        <button>Buscar</button>
+    </form>
+</body>
+</html>
