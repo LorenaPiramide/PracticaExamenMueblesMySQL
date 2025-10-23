@@ -12,13 +12,14 @@ import java.util.List;
 
 public class DAOMuebleMySQL implements DAOMueble {
     @Override
-    public void addMueble(String nombre, double precio) {
+    public void addMueble(String nombre, double precio, EstadoMueble estadoMueble) {
 
         try {
-            String query = "INSERT INTO Mueble (nombre, precio, estado_mueble) VALUES (?, ?)";
+            String query = "INSERT INTO Mueble (nombre, precio, estado_mueble) VALUES (?, ?, ?)";
             PreparedStatement ps = DBConnector.getInstance().prepareStatement(query);
             ps.setString(1, nombre);
             ps.setDouble(2, precio);
+            ps.setString(3, String.valueOf(estadoMueble));
             ps.execute();
         } catch (SQLException e) {
             throw new RuntimeException();
