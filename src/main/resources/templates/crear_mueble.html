@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Crear mueble</title>
 </head>
 <body>
-    <form action="/mueble/crear" method="post">
+    <form th:action="@{/mueble/crear}" method="post">
         <input name="nombre" type="text" placeholder="Nombre del mueble">
+        <textarea name="descripcion" placeholder="Descripción del mueble"></textarea>
         <input name="precio" type="number" step="0.01" placeholder="Precio del mueble">
+        <label for="estadoMueble">Estado del mueble</label>
+        <select id="estadoMueble" th:field="*{estadoMueble}">
+            <option th:each="estado : ${estados}"
+                    th:value="${estado}"
+                    th:text="${estado}">
+            </option>
+        </select>
+        <input name="tienda" type="text" placeholder="Tienda">
+        <button type="submit">Guardar Mueble</button>
     </form>
 </body>
 </html>

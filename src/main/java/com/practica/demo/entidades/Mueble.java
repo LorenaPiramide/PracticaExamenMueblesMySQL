@@ -3,12 +3,14 @@ package com.practica.demo.entidades;
 public class Mueble {
     private int id;
     private String nombre;
+    private String descripcion;
     private double precio;
     private EstadoMueble estadoMueble;
 
-    public Mueble(int id, String nombre, double precio, EstadoMueble estadoMueble) {
+    public Mueble(int id, String nombre, String descripcion, double precio, EstadoMueble estadoMueble) {
         this.id = id;
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.precio = precio;
         this.estadoMueble = estadoMueble;
     }
@@ -37,6 +39,14 @@ public class Mueble {
         this.precio = precio;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public EstadoMueble getEstadoMueble() {
         return estadoMueble;
     }
@@ -49,7 +59,7 @@ public class Mueble {
     public String toString() {
         return "Mueble{" +
                 "id=" + id +
-                ", nombre='" + nombre + '\'' +
+                ", nombre='" + nombre + "Descripción: " + descripcion +
                 ", precio=" + precio +
                 ", estadoMueble=" + estadoMueble +
                 '}';

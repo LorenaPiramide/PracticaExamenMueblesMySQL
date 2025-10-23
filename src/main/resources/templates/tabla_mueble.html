@@ -6,6 +6,32 @@
 </head>
 <body>
     <div th:replace="/fragments/filtro"></div>
+    <h2>Lista de Muebles</h2>
 
+    <table>
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio (€)</th>
+            <th>Estado</th>
+            <th>Tienda</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr th:each="mueble : ${muebles}">
+            <td th:text="${mueble.nombre}">Nombre</td>
+            <td th:text="${mueble.precio}">0.00</td>
+            <td th:text="${mueble.estadoMueble}">NUEVO</td>
+            <!--<td th:text="${mueble.tienda.nombre}">Tienda</td>-->
+
+            <td>
+                <a th:href="@{'/detalles_mueble/' + ${mueble.id}}">Ver más</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>

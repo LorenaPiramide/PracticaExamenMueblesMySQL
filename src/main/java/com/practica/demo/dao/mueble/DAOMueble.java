@@ -6,6 +6,10 @@ import com.practica.demo.entidades.Mueble;
 import java.util.List;
 
 public interface DAOMueble {
-    void addMueble(String nombre, double precio, EstadoMueble estadoMueble);
+    void guardaMueble(Mueble mueble);
     List<Mueble> getMuebles();
+//    List<Mueble> getMuebleTienda();
+//    List<Mueble> filtrarPorTienda(String nombreTienda);
+//    List<Mueble> filtrarPorEstado(EstadoMueble estadoMueble);
+//    List<Mueble> ordenarPorPrecio(double precio);
 }

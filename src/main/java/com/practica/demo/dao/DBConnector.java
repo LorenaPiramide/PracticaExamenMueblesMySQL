@@ -14,7 +14,7 @@ public class DBConnector {
         if (connection == null) {
             try {
                 connection = DriverManager.getConnection(
-                        "jdbc:mysql://coches-prueba.cx0imquaojhi.us-east-1.rds.amazonaws.com:3306/Actividad1",
+                        "jdbc:mysql://coches-prueba.cx0imquaojhi.us-east-1.rds.amazonaws.com:3306/PracticaMueble",
                         "admin", "QTSiGwgBkgPb94");
                 System.out.println("Conexión correcta");
             } catch (SQLException e) {

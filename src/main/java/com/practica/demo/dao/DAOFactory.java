@@ -17,7 +17,7 @@ public class DAOFactory {
         return daoFactory;
     }
 
-    public DAOMueble getDaoUsuario(){
+    public DAOMueble getDaoMueble(){
         if(this.daoMueble == null){
             this.daoMueble = new DAOMuebleMySQL();
         }
