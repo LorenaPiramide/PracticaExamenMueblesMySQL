@@ -28,7 +28,7 @@
             <!--<td th:text="${mueble.tienda.nombre}">Tienda</td>-->
 
             <td>
-                <a th:href="@{'/detalles_mueble/' + ${mueble.id}}">Ver más</a>
+                <a th:href="@{/detalles_mueble/{id}(id=${mueble.id})}">Ver más</a> <!-- se le pasa la url de controlador + le decirmos que le pasamos la id que es mueble.id-->
             </td>
         </tr>
         </tbody>

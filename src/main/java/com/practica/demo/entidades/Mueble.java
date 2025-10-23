@@ -7,6 +7,8 @@ public class Mueble {
     private double precio;
     private EstadoMueble estadoMueble;
 
+    // String nombreTienda
+
     public Mueble(int id, String nombre, String descripcion, double precio, EstadoMueble estadoMueble) {
         this.id = id;
         this.nombre = nombre;

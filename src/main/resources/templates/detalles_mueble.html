@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Detalles mueble</title>
+    <!--<link rel="stylesheet" th:href="@{/css/estilos.css}">-->
+
 </head>
 <body>
+<h2>Detalles del Mueble</h2>
+
+    <div>
+        <span class="label">Nombre:</span>
+        <span th:text="${mueble.nombre}"></span>
+        <br>
+
+        <span class="label">Descripción:</span>
+        <span th:text="${mueble.descripcion}"></span>
+        <br>
+
+        <span class="label">Precio (€):</span>
+        <span th:text="${mueble.precio}"></span>
+        <br>
+
+        <span class="label">Estado:</span>
+        <span th:text="${mueble.estadoMueble}"></span>
+        <br>
+
+        <!--<span>Nombre de la tienda:</span>
+        <span th:text="${mueble.tienda.nombreTienda}"></span>
+        <br>
+
+        <span>Localidad:</span>
+        <span th:text="${mueble.tienda.localidad}"></span>
+        <br>-->
+
+        <a class="volver" th:href="@{/tabla_mueble}">Volver a la lista</a>
+    </div>
 
 </body>
 </html>

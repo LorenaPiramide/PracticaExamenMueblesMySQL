@@ -2,35 +2,35 @@ package com.practica.demo.entidades;
 
 // En una tienda hay muchos muebles, y el mismo mueble puede venderse en varias tiendas
 public class Tienda {
-    private String nombre;
-    private int ciudad;
+    private String nombreTienda;
+    private String localidad;
 
-    public Tienda(String nombre, int ciudad) {
-        this.nombre = nombre;
-        this.ciudad = ciudad;
+    public Tienda(String nombre, String ciudad) {
+        this.nombreTienda = nombre;
+        this.localidad = ciudad;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreTienda() {
+        return nombreTienda;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreTienda(String nombreTienda) {
+        this.nombreTienda = nombreTienda;
     }
 
-    public int getCiudad() {
-        return ciudad;
+    public String getLocalidad() {
+        return localidad;
     }
 
-    public void setCiudad(int ciudad) {
-        this.ciudad = ciudad;
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
     }
 
     @Override
     public String toString() {
         return "Tienda{" +
-                "nombre='" + nombre + '\'' +
-                ", ciudad=" + ciudad +
+                "nombre='" + nombreTienda + '\'' +
+                ", ciudad=" + localidad +
                 '}';
     }
 }

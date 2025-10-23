@@ -12,15 +12,15 @@ import java.util.List;
 
 public class DAOMuebleMySQL implements DAOMueble {
     @Override
-    public void guardaMueble(Mueble mueble) {
+    public void guardaMueble(String nombre, String descripcion, double precio, EstadoMueble estadoMueble) {
 
         try {
             String query = "INSERT INTO Mueble (nombre, descripcion, precio, estado_mueble) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = DBConnector.getInstance().prepareStatement(query);
-            ps.setString(1, mueble.getNombre());
-            ps.setString(2, mueble.getDescripcion());
-            ps.setDouble(3, mueble.getPrecio());
-            ps.setString(4, String.valueOf(mueble.getEstadoMueble()));
+            ps.setString(1, nombre);
+            ps.setString(2, descripcion);
+            ps.setDouble(3, precio);
+            ps.setString(4, String.valueOf(estadoMueble));
             ps.execute();
         } catch (SQLException e) {
             throw new RuntimeException();
@@ -52,6 +52,71 @@ public class DAOMuebleMySQL implements DAOMueble {
 
         return muebles;
     }
+
+    @Override
+    public Mueble getDetallesMueble(int id) {
+
+        Mueble mueble = null;
+
+        try {
+            String query = "SELECT * FROM Mueble WHERE id = ?";
+            PreparedStatement ps = DBConnector.getInstance().prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                mueble = new Mueble(
+                        rs.getInt("id"),
+                        rs.getString("nombre"),
+                        rs.getString("descripcion"),
+                        rs.getDouble("precio"),
+                        EstadoMueble.valueOf(rs.getString("estado_mueble"))
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return mueble;
+    }
+
+//    public List<Mueble> getMueblesConTienda() {
+//        List<Mueble> muebles = new ArrayList<>();
+//        try {
+//            String query = """
+//            SELECT
+//                m.id,
+//                m.nombre,
+//                m.descripcion,
+//                m.precio,
+//                m.estado_mueble,
+//                t.nombre_tienda
+//            FROM Mueble m
+//            LEFT JOIN MuebleTienda mt ON m.id = mt.fk_mueble_id
+//            LEFT JOIN Tienda t ON mt.fk_nombre_tienda = t.nombre_tienda
+//            ORDER BY m.id
+//            """;
+//            PreparedStatement ps = DBConnector.getInstance().prepareStatement(query);
+//            ResultSet rs = ps.executeQuery();
+//
+//            while (rs.next()) {
+//                Mueble mueble = new Mueble();
+//                mueble.setId(rs.getInt("id"));
+//                mueble.setNombre(rs.getString("nombre"));
+//                mueble.setDescripcion(rs.getString("descripcion"));
+//                mueble.setPrecio(rs.getDouble("precio"));
+//                mueble.setEstadoMueble(EstadoMueble.valueOf(rs.getString("estado_mueble")));
+//                mueble.setNombreTienda(rs.getString("nombre_tienda"));
+//
+//                muebles.add(mueble);
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return muebles;
+//    }
+
+
 //
 //    @Override
 //    public List<Mueble> getMuebleTienda() {

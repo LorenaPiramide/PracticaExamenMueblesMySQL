@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Crear mueble</title>
 </head>
 <body>
-    <form th:action="@{/mueble/crear}" method="post">
-        <input name="nombre" type="text" placeholder="Nombre del mueble">
-        <textarea name="descripcion" placeholder="Descripción del mueble"></textarea>
-        <input name="precio" type="number" step="0.01" placeholder="Precio del mueble">
-        <label for="estadoMueble">Estado del mueble</label>
-        <select id="estadoMueble" th:field="*{estadoMueble}">
-            <option th:each="estado : ${estados}"
-                    th:value="${estado}"
-                    th:text="${estado}">
-            </option>
-        </select>
-        <input name="tienda" type="text" placeholder="Tienda">
-        <button type="submit">Guardar Mueble</button>
-    </form>
+<form action="/crear/mueble" method="post">
+    <input name="nombre" type="text" placeholder="Nombre del mueble">
+    <textarea name="descripcion" placeholder="Descripción del mueble"></textarea>
+    <input name="precio" type="number" step="0.01" placeholder="Precio del mueble">
+
+    <label for="estadoMueble">Estado del mueble</label>
+    <select name="estadoMueble" id="estadoMueble">
+        <option th:each="estado : ${estados}" th:value="${estado}" th:text="${estado}"></option>
+    </select>
+
+    <label for="tienda">Tienda:</label>
+    <select name="nombreTienda" id="tienda">
+        <option th:each="t : ${tiendas}" th:value="${t.nombreTienda}" th:text="${t.nombreTienda}"></option>
+    </select>
+
+    <button type="submit">Guardar Mueble</button>
+</form>
 </body>
 </html>
