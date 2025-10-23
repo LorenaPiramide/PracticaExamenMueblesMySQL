@@ -24,3 +24,27 @@
 </form>
 </body>
 </html>
+
+<!--<form th:action="${mueble != null} ? @{'/editar/mueble'} : @{'/crear/mueble'}" method="post">
+    <input type="hidden" name="id" th:value="${mueble.id}" />
+
+    <input name="nombre" type="text" placeholder="Nombre del mueble"
+           th:value="${mueble != null} ? ${mueble.nombre} : ''">
+
+    <textarea name="descripcion" placeholder="Descripción del mueble"
+              th:text="${mueble != null} ? ${mueble.descripcion} : ''"></textarea>
+
+    <input name="precio" type="number" step="0.01" placeholder="Precio del mueble"
+           th:value="${mueble != null} ? ${mueble.precio} : ''">
+
+    <label for="estadoMueble">Estado del mueble</label>
+    <select name="estadoMueble" id="estadoMueble">
+        <option th:each="estado : ${estados}"
+                th:value="${estado}"
+                th:text="${estado}"
+                th:selected="${mueble != null} ? ${estado} == ${mueble.estadoMueble} : false">
+        </option>
+    </select>
+
+    <button type="submit">Guardar Mueble</button>
+</form> -->

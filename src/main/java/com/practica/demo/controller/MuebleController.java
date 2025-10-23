@@ -26,7 +26,28 @@ public class MuebleController {
         return "redirect:/tabla_mueble";
     }
 
-    //@GetMapping("/editar_mueble")
+//    @GetMapping("/editar_mueble/{id}")
+//    String editarMuebleForm(@PathVariable int id, Model model) {
+//        Mueble mueble = DAOFactory.getInstance().getDaoMueble().getDetallesMueble(id);
+//
+//        model.addAttribute("mueble", mueble);
+//        model.addAttribute("estados", EstadoMueble.values());
+//
+//        return "crear_mueble";
+//    }
+//
+//    @PostMapping("/editar/mueble")
+//    String actualizarMueble(
+//            @RequestParam int id,
+//            @RequestParam String nombre,
+//            @RequestParam String descripcion,
+//            @RequestParam double precio,
+//            @RequestParam EstadoMueble estadoMueble) {
+//
+//        DAOFactory.getInstance().getDaoMueble().actualizarMueble(id, nombre, descripcion, precio, estadoMueble);
+//        return "redirect:/tabla_mueble";
+//    }
+
 
     @GetMapping("/detalles_mueble/{id}")
     String getDetallesMueble(@PathVariable int id, Model model) {

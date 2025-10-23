@@ -80,6 +80,28 @@ public class DAOMuebleMySQL implements DAOMueble {
         return mueble;
     }
 
+//    @Override
+//    public void actualizarMueble(int id, String nombre, String descripcion, double precio, EstadoMueble estadoMueble) {
+//        try {
+//            String query = """
+//            UPDATE Mueble
+//            SET nombre = ?, descripcion = ?, precio = ?, estado_mueble = ?
+//            WHERE id = ?
+//        """;
+//            PreparedStatement ps = DBConnector.getInstance().prepareStatement(query);
+//            ps.setString(1, nombre);
+//            ps.setString(2, descripcion);
+//            ps.setDouble(3, precio);
+//            ps.setString(4, estadoMueble.name());
+//            ps.setInt(5, id);
+//            ps.executeUpdate();
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+
 //    public List<Mueble> getMueblesConTienda() {
 //        List<Mueble> muebles = new ArrayList<>();
 //        try {
